@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - Eckert Engenharia de Estruturas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para o ícone do menu mobile -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- CABEÇALHO -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('inicio')">
+                    <!-- [ EDITE AQUI: NOME DO ARQUIVO DA SUA LOGO NO MENU ] -->
+                    <!-- Se a sua logo mudar de nome, troque "Logo.png" abaixo -->
+                    <img src="Logo.png" alt="Logo EEE" class="h-12 w-auto object-contain"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div
+                        class="hidden flex items-center justify-center bg-blue-900 rounded-lg text-white font-bold text-xl w-12 h-12">
+                        EEE</div>
+                    <div class="leading-tight">
+                        <span class="block text-lg font-bold text-[#0a2472] uppercase leading-none">Eckert
+                            Engenharia</span>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">De
+                            Estruturas</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 font-medium items-center">
+                    <a href="index.html" class="text-[#0a2472] hover:text-blue-600 transition nav-link">Início</a>
+                    <a href="index.html#sobre" class="text-gray-600 hover:text-[#0a2472] transition nav-link">Quem
+                        Somos</a>
+                    <a href="index.html#servicos"
+                        class="text-gray-600 hover:text-[#0a2472] transition nav-link">Serviços</a>
+                    <a href="index.html#portfolio" class="text-gray-600 hover:text-[#0a2472] transition nav-link"
+                        id="nav-portfolio">Portfólio</a>
+                    <a href="index.html#contato"
+                        class="bg-[#0340c2] text-white px-6 py-2.5 rounded-md hover:bg-[#0a2472] transition shadow-md font-bold text-sm uppercase tracking-wide">Contato</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-[#0a2472] focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 py-6 space-y-4">
+                <a href="javascript:void(0)" onclick="navigate('inicio')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Início</a>
+                <a href="javascript:void(0)" onclick="navigate('sobre')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Quem Somos</a>
+                <a href="javascript:void(0)" onclick="navigate('servicos')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Serviços</a>
+                <a href="javascript:void(0)" onclick="showPortfolio()"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Portfólio</a>
+                <a href="javascript:void(0)" onclick="navigate('contato')"
+                    class="block text-[#0a2472] font-bold pt-2 border-t">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="view-termos" class="pt-20 pb-24 bg-gray-50 min-h-screen">
+
+        <!-- Cabeçalho (Banner Azul) -->
+        <div class="bg-[#0a2472] py-16 text-center text-white border-t-4 border-blue-600">
+            <h1 class="text-4xl md:text-5xl font-black mb-4">Termos de Uso</h1>
+            <p class="text-blue-200 max-w-2xl mx-auto px-4">Bem-vindo ao site da Eckert Engenharia de Estruturas. Ao
+                acessar e utilizar este site, você concorda com os presentes Termos de Uso.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div
+                class="bg-white p-10 md:p-16 rounded-2xl shadow-lg border border-gray-100 text-gray-700 space-y-8 leading-relaxed">
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">1. Objetivo do Site</h3>
+                    <p>O site tem como finalidade apresentar informações institucionais, serviços de engenharia
+                        estrutural, projetos realizados e canais de contato da empresa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">2. Uso do Site</h3>
+                    <p>O usuário compromete-se a utilizar este site de forma ética, responsável e em conformidade com a
+                        legislação vigente.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">3. Propriedade Intelectual</h3>
+                    <p>Todo o conteúdo deste site, incluindo textos, imagens, logotipos, marcas, projetos e demais
+                        materiais, pertence à Eckert Engenharia de Estruturas ou é utilizado mediante autorização, sendo
+                        protegido pela legislação aplicável. É proibida a reprodução, distribuição ou utilização do
+                        conteúdo sem autorização prévia e expressa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">4. Limitação de Responsabilidade</h3>
+                    <p>As informações disponibilizadas neste site possuem caráter informativo. Embora a empresa busque
+                        manter o conteúdo atualizado, não garante a inexistência de erros, omissões ou desatualizações.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">5. Links para Terceiros</h3>
+                    <p>Eventualmente, este site poderá conter links para páginas externas. A Eckert Engenharia de
+                        Estruturas não se responsabiliza pelo conteúdo, disponibilidade ou políticas desses sites.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">6. Alterações dos Termos</h3>
+                    <p>A empresa poderá modificar estes Termos de Uso a qualquer momento. As alterações entrarão em
+                        vigor após sua publicação nesta página.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">7. Legislação Aplicável</h3>
+                    <p>Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">8. Contato</h3>
+                    <p>Para esclarecimentos sobre estes Termos de Uso, utilize os canais de atendimento disponibilizados
+                        no site da Eckert Engenharia de Estruturas.</p>
+                </div>
+
+                <!-- Data de Atualização -->
+                <div class="border-t border-gray-200 pt-8 mt-12 text-sm text-gray-500 text-center">
+                    <p>Última atualização: 02/06/2026</p>
+                </div>
+            </div>
+
+            <!-- Botão Voltar -->
+            <div class="mt-12 text-center">
+                <a href="index.html"
+                    class="inline-block bg-transparent border-2 border-[#0a2472] text-[#0a2472] font-bold py-3 px-8 rounded-md hover:bg-[#0a2472] hover:text-white transition uppercase tracking-wide">
+                    Voltar para o Início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script para funcionamento do Menu Mobile -->
+    <script>
+        // Código do menu mobile (abrir/fechar)
+        const btnMenu = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btnMenu && menu) {
+            btnMenu.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+
+</html>

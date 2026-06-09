@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- [ EDITE AQUI: NOME DA ABA DO NAVEGADOR ] -->
+    <title>Eckert Engenharia | Estruturas</title>
+
+    <!-- [ EDITE AQUI: FAVICON (ÍCONE DA ABA DO NAVEGADOR) ] -->
+    <!-- Se você tiver um arquivo .ico ou uma logo menor, coloque o nome dele no href abaixo -->
+    <link rel="icon" type="image/png" href="./img/Favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, #0a2472 0%, #1e40af 100%);
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card {
+            border-top: 4px solid #1e3a8a;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- ========================================================================
+         CABEÇALHO (NAVBAR)
+    ======================================================================== -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('inicio')">
+                    <!-- [ EDITE AQUI: NOME DO ARQUIVO DA SUA LOGO NO MENU ] -->
+                    <!-- Se a sua logo mudar de nome, troque "Logo-ofs.png" abaixo -->
+                    <img src="./img/Logo.png" alt="Logo EEE" class="h-12 w-auto object-contain"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div
+                        class="hidden flex items-center justify-center bg-blue-900 rounded-lg text-white font-bold text-xl w-12 h-12">
+                        EEE</div>
+                    <div class="leading-tight">
+                        <span class="block text-lg font-bold text-[#0a2472] uppercase leading-none">Eckert
+                            Engenharia</span>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">De
+                            Estruturas</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 font-medium items-center">
+                    <a href="javascript:void(0)" onclick="navigate('inicio')"
+                        class="text-[#0a2472] hover:text-blue-600 transition nav-link">Início</a>
+                    <a href="javascript:void(0)" onclick="navigate('sobre')"
+                        class="text-gray-600 hover:text-[#0a2472] transition nav-link">Quem Somos</a>
+                    <a href="javascript:void(0)" onclick="navigate('servicos')"
+                        class="text-gray-600 hover:text-[#0a2472] transition nav-link">Serviços</a>
+                    <a href="javascript:void(0)" onclick="showPortfolio()"
+                        class="text-gray-600 hover:text-[#0a2472] transition nav-link" id="nav-portfolio">Portfólio</a>
+                    <a href="javascript:void(0)" onclick="navigate('contato')"
+                        class="bg-[#0340c2] text-white px-6 py-2.5 rounded-md hover:bg-[#0a2472] transition shadow-md font-bold text-sm uppercase tracking-wide">Contato</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-[#0a2472] focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 py-6 space-y-4">
+                <a href="javascript:void(0)" onclick="navigate('inicio')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Início</a>
+                <a href="javascript:void(0)" onclick="navigate('sobre')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Quem Somos</a>
+                <a href="javascript:void(0)" onclick="navigate('servicos')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Serviços</a>
+                <a href="javascript:void(0)" onclick="showPortfolio()"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Portfólio</a>
+                <a href="javascript:void(0)" onclick="navigate('contato')"
+                    class="block text-[#0a2472] font-bold pt-2 border-t">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================================
+         PÁGINA PRINCIPAL (HOME)
+    ======================================================================== -->
+    <main id="view-home" class="fade-in block">
+
+        <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0">
+                <!-- [ EDITE AQUI: FOTO DE FUNDO DA TELA INICIAL (HERO) ] -->
+                <img src="./img/img_hero.JPG" alt="Engenharia e Estruturas" class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-4 max-w-5xl mt-20">
+                <div class="mb-5 inline-block">
+                    <!-- [ EDITE AQUI: LOGO NO MEIO DA TELA INICIAL ] -->
+                    <img src="./img/Logo-ofs.png" alt="Logo EEE" class="h-20 mx-auto mb-3 brightness-0 invert"
+                        onerror="this.style.display='none'">
+                </div>
+
+                <!-- [ EDITE AQUI: TEXTO PRINCIPAL DA TELA INICIAL ] -->
+                <h1
+                    class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight uppercase tracking-wide">
+                    Eckert Engenharia
+                </h1>
+
+                <h2
+                    class="text-base md:text-xl font-bold text-blue-400 mb-8 uppercase tracking-widest max-w-4xl mx-auto leading-relaxed">
+                    Soluções Integradas em Engenharia <br class="md:hidden">
+                    <span
+                        class="text-white block md:inline-block font-light text-sm md:text-lg normal-case tracking-normal md:border-l md:border-white/30 md:pl-4 md:ml-4">
+                        Do Projeto à Execução
+                    </span>
+                </h2>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                    <a href="javascript:void(0)" onclick="navigate('contato')"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold transition-all flex items-center justify-center shadow-lg transform hover:scale-105">
+                        Solicitar Orçamento <i class="fa-solid fa-chevron-right ml-3 text-sm"></i>
+                    </a>
+                    <a href="javascript:void(0)" onclick="navigate('servicos')"
+                        class="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">
+                        Conhecer Serviços
+                    </a>
+                </div>
+
+                <div class="max-w-2xl mx-auto border-t border-white/15 pt-5 mt-5">
+                    <!-- [ EDITE AQUI: FRASE DO ARISTÓTELES ] -->
+                    <p class="text-sm md:text-base italic text-gray-300 font-light leading-relaxed">
+                        "A excelência não é um feito, mas um hábito. Somos o que repetidamente fazemos."
+                    </p>
+                    <span class="block text-xs uppercase tracking-widest text-blue-400 font-bold mt-2">—
+                        Aristóteles</span>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white opacity-50 cursor-pointer"
+                onclick="navigate('sobre')">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             SEÇÃO: QUEM SOMOS
+        ======================================================================== -->
+        <section id="sobre" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+                    <div class="relative lg:sticky lg:top-32">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-50 rounded-full -z-10"></div>
+                        <!-- [ EDITE AQUI: FOTO DA SEÇÃO QUEM SOMOS ] -->
+                        <img src="./img/img_quem_somos.JPG" alt="Obra de engenharia"
+                            class="rounded-3xl shadow-2xl border-8 border-gray-50">
+
+                        <div
+                            class="absolute -bottom-6 -right-6 bg-blue-900 p-6 rounded-2xl text-white shadow-xl hidden lg:block">
+                            <p class="text-3xl font-bold">+250 mil</p>
+                            <p class="text-blue-200">Metros quadrados em obras</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Quem Somos</h4>
+                        <h2 class="text-4xl font-extrabold text-blue-950 mb-8 leading-tight">Eckert Engenharia</h2>
+
+                        <!-- [ EDITE AQUI: TEXTOS SOBRE A EMPRESA ] -->
+                        <div class="space-y-5 text-gray-600 text-lg leading-relaxed">
+                            <p>A <strong>Eckert Engenharia de Estruturas</strong> é uma empresa de engenharia com mais
+                                de 18 anos de experiência, especializada em projetos estruturais, projetos
+                                complementares, execução de obras, fundações, consultoria técnica, gerenciamento de
+                                equipes e grandes empreendimentos.</p>
+                            <p>Nossa missão é entregar soluções inovadoras, seguras e de alta qualidade, superando as
+                                expectativas dos clientes em cada projeto realizado. Trabalhamos com foco em excelência,
+                                eficiência e sustentabilidade, garantindo resultados sólidos e confiáveis em todas as
+                                etapas da obra.</p>
+                            <p>Buscamos ser reconhecidos como referência no mercado da engenharia estrutural, agregando
+                                valor, segurança e credibilidade a cada empreendimento que conduzimos.</p>
+                            <p>Desde a sua criação, a Eckert Engenharia de Estruturas já participou de mais de 200
+                                projetos, atuando nos mais diversos segmentos da construção civil, com destaque para:
+                            </p>
+
+                            <ul class="grid sm:grid-cols-2 gap-4 py-4">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Estruturas de concreto armado</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Concreto protendido</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Fundações rasas e profundas</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Execução de obras</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Contenções</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                    Estruturas metálicas</li>
+                                <li class="flex items-start sm:col-span-2"><i
+                                        class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i> Projetos com demanda
+                                    sísmica, inclusive em solo francês</li>
+                            </ul>
+
+                            <div class="mt-6 border-l-4 border-blue-600 pl-5 py-3 bg-gray-50 rounded-r-xl">
+                                <p class="font-medium text-gray-800 text-base">
+                                    Ao longo dessa trajetória, já foram desenvolvidos mais de 250 mil metros quadrados
+                                    entre projetos e execuções, consolidando a experiência e a capacidade técnica da
+                                    empresa em obras de diferentes portes e complexidades.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [ EDITE AQUI: NÚMEROS DAS ESTATÍSTICAS ] -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 border-b-4 border-b-[#0a2472] p-6 text-center hover-lift flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-calendar-days text-2xl text-blue-700 mb-3"></i>
+                        <h3 class="text-3xl md:text-4xl font-black text-[#0a2472] mb-2">+18</h3>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">Anos
+                            de<br>Experiência</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 border-b-4 border-b-[#0a2472] p-6 text-center hover-lift flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-file-signature text-2xl text-blue-700 mb-3"></i>
+                        <h3 class="text-3xl md:text-4xl font-black text-[#0a2472] mb-2">+200</h3>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                            Projetos<br>Realizados</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 border-b-4 border-b-[#0a2472] p-6 text-center hover-lift flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-id-card text-2xl text-blue-700 mb-3"></i>
+                        <h3 class="text-3xl md:text-4xl font-black text-[#0a2472] mb-2">Ativo</h3>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                            CREA<br>Regularizado</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 border-b-4 border-b-[#0a2472] p-6 text-center hover-lift flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-2xl text-blue-700 mb-3"></i>
+                        <h3 class="text-3xl md:text-4xl font-black text-[#0a2472] mb-2">Esp.</h3>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                            Cálculo<br>Estrutural</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             SEÇÃO: SERVIÇOS
+        ======================================================================== -->
+        <section id="servicos" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h4 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Especialidades</h4>
+                    <h2 class="text-4xl font-extrabold text-blue-950 mb-4">Nossos Serviços</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-compass-drafting text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Projetos Estruturais</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Projetos estruturais e complementares em geral:
+                            Soluções completas para o sucesso de seu empreendimento.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-chart-line text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Consultoria em Viabilização</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Empreendimentos Comerciais, Industriais e
+                            Residenciais: Recursos inovadores e sob medida para cada projeto, assegurando eficiência e
+                            economia.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-calculator text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Análise e Cálculo Estrutural</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">A base para a segurança e eficiência das
+                            edificações, com dimensionamento preciso e responsável.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-clipboard-list text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Gerenciamento de Obras</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Obras Comerciais, Industriais e Residenciais:
+                            Garantindo qualidade, prazos e eficiência em cada projeto.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-road text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Pavimentos em Concreto</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Projeto e execução de pisos industriais e
+                            pavimentos com alta qualidade e durabilidade.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-layer-group text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Execução de Fundações</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Projeto e implementação de fundações rasas e
+                            profundas com total segurança e precisão.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-helmet-safety text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Execuções em Geral</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Gestão e execução completa de obras: da
+                            concepção inicial ao acabamento final.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-paint-roller text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Acabamento Pré-Moldado</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Finalização e atividades após a conclusão da
+                            obra pré-moldada, incluindo piso e telhado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             SEÇÃO: DIFERENCIAIS
+        ======================================================================== -->
+        <section id="diferenciais" class="py-24 bg-[#0a2472] text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h4 class="text-blue-300 font-bold tracking-widest uppercase text-sm mb-2">Diferenciais</h4>
+                    <h2 class="text-4xl font-extrabold mb-4">Por que Confiar na Eckert?</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-[#112d85] border border-[#1e40af] p-8 rounded-xl hover-lift shadow-lg">
+                        <i class="fa-solid fa-shield-halved text-3xl text-white mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">Segurança Rigorosa</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed">Projetos desenvolvidos rigorosamente dentro das
+                            normas técnicas.</p>
+                    </div>
+                    <div class="bg-[#112d85] border border-[#1e40af] p-8 rounded-xl hover-lift shadow-lg">
+                        <i class="fa-solid fa-piggy-bank text-3xl text-white mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">Economia Inteligente</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed">Otimização de taxas de aço e volume de
+                            concreto.</p>
+                    </div>
+                    <div class="bg-[#112d85] border border-[#1e40af] p-8 rounded-xl hover-lift shadow-lg">
+                        <i class="fa-solid fa-bolt text-3xl text-white mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">Agilidade e Pontualidade</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed">Cronogramas rígidos e cumprimento dos prazos
+                            acordados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             SEÇÃO: DESTAQUES DO PORTFÓLIO NA HOME
+             (Os projetos que aparecem aqui são puxados da lista lá no fim do código)
+        ======================================================================== -->
+        <section id="destaques-portfolio" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h4 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Nosso Portfólio</h4>
+                    <h2 class="text-4xl font-extrabold text-blue-950 mb-4">Projetos em Destaque</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Uma pequena amostra da nossa excelência e rigor técnico
+                        em diferentes segmentos da engenharia.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="featured-projects-grid">
+                    <!-- O JavaScript injeta as imagens aqui automaticamente -->
+                </div>
+
+                <div class="mt-16 text-center">
+                    <button onclick="showPortfolio()"
+                        class="bg-transparent border-2 border-[#0a2472] text-[#0a2472] font-bold py-4 px-10 rounded-md hover:bg-[#0a2472] hover:text-white transition uppercase tracking-wide">
+                        Ver Portfólio Completo <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             SEÇÃO: CONTATO E REDES SOCIAIS
+        ======================================================================== -->
+        <section id="contato" class="py-24 bg-blue-950">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-[#f8fafc] rounded-2xl shadow-2xl p-8 md:p-14 mb-12 border border-white/10">
+                    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-black text-[#0a2472] mb-6 leading-tight">
+                                Pronto para iniciar seu projeto com segurança?
+                            </h2>
+                            <p class="text-gray-600 mb-8 leading-relaxed">
+                                Preencha os dados ao lado. Nossa equipe de engenharia analisará sua demanda e entrará em
+                                contato rapidamente para enviar uma proposta personalizada.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center text-gray-700 font-medium">
+                                    <i class="fa-solid fa-check text-blue-600 mr-3"></i> Análise sem compromisso
+                                </li>
+                                <li class="flex items-center text-gray-700 font-medium">
+                                    <i class="fa-solid fa-check text-blue-600 mr-3"></i> Atendimento via WhatsApp
+                                </li>
+                                <li class="flex items-center text-gray-700 font-medium">
+                                    <i class="fa-solid fa-check text-blue-600 mr-3"></i> Sigilo total dos seus projetos
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <!-- O Formulário (Lógica de envio está no Javascript) -->
+                            <form id="contact-form" class="space-y-5">
+                                <div>
+                                    <label class="block text-sm font-bold text-[#0a2472] mb-2">Seu Nome Completo</label>
+                                    <input type="text" name="Nome" required
+                                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0a2472] transition bg-white"
+                                        placeholder="Ex: João da Silva">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-[#0a2472] mb-2">Seu WhatsApp</label>
+                                    <input type="tel" name="WhatsApp" required
+                                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0a2472] transition bg-white"
+                                        placeholder="(00) 00000-0000">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-[#0a2472] mb-2">Tipo de
+                                        Estrutura/Obra</label>
+                                    <select name="Servico" required
+                                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0a2472] transition bg-white text-gray-600">
+                                        <option value="" disabled selected>Selecione uma opção...</option>
+                                        <option>Projetos Estruturais</option>
+                                        <option>Consultoria</option>
+                                        <option>Análise e Cálculo Estrutural</option>
+                                        <option>Gerenciamento de Obras</option>
+                                        <option>Fundações ou Pavimentos</option>
+                                        <option>Execuções em Geral</option>
+                                        <option>Acabamento Pré-Moldado</option>
+                                        <option>Outro</option>
+                                    </select>
+                                </div>
+                                <input type="text" name="_honey" style="display:none">
+                                <input type="hidden" name="_captcha" value="false">
+                                <button type="submit"
+                                    class="w-full bg-[#0340c2] text-white font-bold py-4 rounded-md hover:bg-[#0a2472] transition uppercase tracking-wide mt-2">
+                                    Solicitar Análise Gratuita
+                                </button>
+                                <p class="text-xs text-gray-500 mt-2">
+                                    Ao enviar seus dados, você concorda com nossa
+                                    <a href="politica-de-privacidade.html" class="underline">
+                                        Política de Privacidade
+                                    </a>.
+                                </p>
+                            </form>
+                            <div id="form-message" class="hidden mt-6 p-4 rounded-md text-center font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h4 class="text-blue-300 font-bold tracking-widest uppercase text-sm mb-6">Acompanhe nosso trabalho
+                    </h4>
+                    <div class="flex justify-center space-x-4">
+                        <!-- [ EDITE AQUI: LINKS DAS REDES SOCIAIS ABAIXO DO FORMULÁRIO ] -->
+                        <!-- Troque o "#" dentro do href=" " pelo link do seu perfil -->
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
+                            <i class="fa-brands fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
+                            class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================================
+         SUB-PÁGINA: PORTFÓLIO COMPLETO
+         (Só aparece ao clicar no botão "Portfólio")
+    ======================================================================== -->
+    <main id="view-portfolio" class="hidden fade-in pt-20 pb-24 bg-gray-50 min-h-screen">
+        <div class="bg-blue-950 py-16 text-center text-white border-t-4 border-blue-600">
+            <h1 class="text-4xl md:text-5xl font-black mb-4">Portfólio de Obras</h1>
+            <p class="text-blue-200 max-w-2xl mx-auto px-4">Conheça detalhadamente as soluções de engenharia que
+                aplicamos em empreendimentos de todos os portes.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="full-portfolio-grid">
+                <!-- O JAVASCRIPT INSERE O CONTEÚDO AQUI -->
+            </div>
+
+            <div class="mt-20 text-center border-t border-gray-200 pt-10">
+                <h3 class="text-2xl font-bold text-[#0a2472] mb-4">Seu projeto é o nosso próximo desafio.</h3>
+                <button onclick="navigate('contato')"
+                    class="bg-[#0340c2] text-white font-bold py-4 px-10 rounded-md hover:bg-[#0a2472] transition uppercase tracking-wide">
+                    Entrar em Contato
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========================================================================
+         RODAPÉ (FOOTER) - Aparece em todas as páginas
+    ======================================================================== -->
+    <footer class="bg-[#0f172a] text-gray-300 py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 items-start">
+
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <!-- [ EDITE AQUI: LOGO DO RODAPÉ ] -->
+                        <img src="Logo.png" alt="Logo EEE" class="h-10 w-auto object-contain"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="text-white font-bold text-lg tracking-tight uppercase">Eckert Engenharia</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400 pr-4">
+                        Soluções estruturais premium para obras seguras, econômicas e bem planejadas.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Serviços</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="javascript:void(0)" onclick="navigate('servicos')"
+                                class="hover:text-blue-400 transition">Projetos Estruturais</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('servicos')"
+                                class="hover:text-blue-400 transition">Cálculo Estrutural</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('servicos')"
+                                class="hover:text-blue-400 transition">Laudos Técnicos</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigate('servicos')"
+                                class="hover:text-blue-400 transition">Consultoria</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Contato</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <!-- [ EDITE AQUI: SEU TELEFONE, EMAIL E ENDEREÇO NO RODAPÉ ] -->
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone text-blue-500 mr-3 w-4 text-center text-lg"></i>
+                            <span>(51) 99525-1987</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-regular fa-envelope text-blue-500 mr-3 w-4 text-center text-lg"></i>
+                            <span>jardelhenriqueeckert@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-location-dot text-blue-500 mr-3 w-4 text-center text-lg"></i>
+                            <span>Lajeado - RS, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Redes Sociais</h4>
+                    <div class="flex space-x-3">
+                        <!-- [ EDITE AQUI: LINKS DAS REDES SOCIAIS DO RODAPÉ ] -->
+                        <!-- Troque o "#" pelo link -->
+                        <a href="#"
+                            class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
+                            class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-gray-400">
+                <div class="text-center md:text-left">
+                    <!-- [ EDITE AQUI: NUMERO DO CREA ] -->
+                    <p>© 2026 Eckert Engenharia. Todos os direitos reservados. CREA-RS: 123456</p>
+                    <!-- <p class="mt-1 text-xs">Desenvolvido por <a href="https://zynis-hub.vercel.app/" target="_blank" rel="noopener noreferrer"><strong class="text-white font-bold text-sm tracking-wider mb-25">Zynis Hub</strong></p></a> -->
+                </div>
+                <div class="flex space-x-6">
+                    <a href="politica-de-privacidade.html" class="hover:text-white transition">Política de
+                        Privacidade</a>
+                    <a href="termos-de-uso.html" class="hover:text-white transition">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================================
+         BOTÃO FLUTUANTE WHATSAPP
+    ======================================================================== -->
+    <!-- [ EDITE AQUI: NÚMERO DO WHATSAPP FLUTUANTE ] -->
+    <!-- Coloque no formato: 55 + DDD + Numero -->
+    <a href="https://wa.me/5551995251987?text=Olá Jardel, gostaria de orçar um projeto." target="_blank"
+        class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition-all hover:scale-110 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute -top-2 -left-2 flex h-5 w-5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500 border-2 border-white"></span>
+        </span>
+    </a>
+
+    <!-- ========================================================================
+         SCRIPTS (JAVASCRIPT) - CONFIGURAÇÕES DO SITE
+    ======================================================================== -->
+    <script>
+        // Menu Mobile Toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        // ========================================================================
+        // [ EDITE AQUI: BANCO DE DADOS DE PROJETOS ]
+        // ========================================================================
+        // Para adicionar um novo projeto, copie um bloco { ... }, cole embaixo e mude os textos.
+        const allProjects = [
+            {
+                title: "Ed.Pulse 360",
+                tag: "Cálculo Estrutural",
+                image: "img/Ed. Pulse 360 - Calculo Estrutural.jpeg",
+                description: "Projeto, cálculo, dimensionamento e detalhamento da Estrutura de pilotis em concreto armado e alvenaria estrutural, Lajeado - RS."
+            },
+            {
+                title: "Pavilhão - Paraíso do Sul",
+                tag: "Estrutura Metálica",
+                image: "img/Montagem Metálica 2.JPG",
+                description: "Projeto, cálculo, dimensionamento e detalhamento da Estrutura com 50 metros de vão."
+            },
+            {
+                title: "Estaqueamento - Passo do Sobrado",
+                tag: "Estaqueamento",
+                image: "img/Estaqueamento em Hélice Contínua.JPG",
+                description: "Estaqueamento perfurado convencional e com hélice contínua. Projeto e Execução"
+            },
+            {
+                title: "Parque do Imigrante",
+                tag: "Gerenciamento de Obra",
+                image: "img/Gerenciamento de obra - Lajeado 3 - RS.JPG",
+                description: "Acompanhamento e execução da obra, localizada em Lajeado-RS."
+            },
+            {
+                title: "Pavilhão Dois Irmãos – RS",
+                tag: "Cálculo Estrutural",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Dois Irmãos 4 - RS.JPG",
+                description: "Gerenciamento de obra e cálculo estrutural. Cobertura em concreto protendido."
+            },
+            {
+                title: "Cobertura Zipada",
+                tag: "Cobertura",
+                image: "img/Cobertura Zipada 4.JPG",
+                description: "Gerenciamento de obra e cálculo estrutural, Garibaldi – RS."
+            },
+            {
+                title: "Distribuidora Marmitt",
+                tag: "Cálculo Estrutural",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Ivoti 3 - RS.JPG",
+                description: "Gerenciamento de obra e cálculo estrutural. Cobertura de 40 metros de vão em treliça plana, Ivoti - RS."
+            },
+            {
+                title: "Atacado Macromix",
+                tag: "Cálculo Estrutural",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Portão 5 - RS.JPG",
+                description: "Gerenciamento de obra e cálculo estrutural Portão – RS."
+            },
+            {
+                title: "Ponte em concreto protendido",
+                tag: "Cálculo e Gerenciamento",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Encantado 4 - RS.JPG",
+                description: "Execução de ponte em concreto protendido. Cálculo estrutural e gerenciamento de obra, Encantado - RS."
+            }
+        ];
+
+        // Roteamento
+        const viewHome = document.getElementById('view-home');
+        const viewPortfolio = document.getElementById('view-portfolio');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateNavActive(activeId) {
+            navLinks.forEach(link => { link.classList.remove('text-[#0a2472]', 'font-bold'); link.classList.add('text-gray-600'); });
+            if (activeId) { const a = document.getElementById(activeId); if (a) { a.classList.remove('text-gray-600'); a.classList.add('text-[#0a2472]', 'font-bold'); } }
+        }
+
+        function navigate(sectionId) {
+            if (viewHome.classList.contains('hidden')) {
+                viewPortfolio.classList.add('hidden'); viewPortfolio.classList.remove('block');
+                viewHome.classList.remove('hidden'); viewHome.classList.add('block');
+                updateNavActive('');
+            }
+            mobileMenu.classList.add('hidden');
+            setTimeout(() => { const e = document.getElementById(sectionId); if (e) { window.scrollTo({ top: e.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); } }, 50);
+        }
+
+        function showPortfolio() {
+            viewHome.classList.add('hidden'); viewHome.classList.remove('block');
+            viewPortfolio.classList.remove('hidden'); viewPortfolio.classList.add('block');
+            updateNavActive('nav-portfolio'); mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Renderização dos Projetos
+        function renderFeatured() {
+            const grid = document.getElementById('featured-projects-grid'); grid.innerHTML = '';
+            const shuffled = [...allProjects].sort(() => 0.5 - Math.random()).slice(0, 4);
+            shuffled.forEach((p, index) => {
+                const card = `<div class="group relative overflow-hidden rounded-xl h-72 shadow-lg fade-in-up hover-lift cursor-pointer" onclick="showPortfolio()" style="animation-delay: ${index * 100}ms"><img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110"><div class="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/60 to-transparent flex flex-col justify-end p-6"><span class="text-blue-300 font-bold text-[10px] tracking-widest uppercase mb-1">${p.tag}</span><h4 class="text-white font-bold text-lg leading-tight">${p.title}</h4></div></div>`;
+                grid.insertAdjacentHTML('beforeend', card);
+            });
+        }
+
+        function renderFullPortfolio() {
+            const grid = document.getElementById('full-portfolio-grid'); grid.innerHTML = '';
+            allProjects.forEach((p, index) => {
+                const card = `<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col fade-in-up hover-lift" style="animation-delay: ${index * 50}ms"><div class="h-56 overflow-hidden relative"><img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover"><div class="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">${p.tag}</div></div><div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-[#0a2472] mb-3">${p.title}</h3><p class="text-gray-600 text-sm leading-relaxed flex-grow">${p.description}</p><div class="mt-6 border-t border-gray-100 pt-4 text-xs font-semibold text-blue-500 uppercase tracking-widest">Obra Concluída <i class="fa-solid fa-check-circle ml-1"></i></div></div></div>`;
+                grid.insertAdjacentHTML('beforeend', card);
+            });
+        }
+
+        window.onload = () => { renderFeatured(); renderFullPortfolio(); };
+
+        // ========================================================================
+        // [ EDITE AQUI: SEU EMAIL PARA RECEBER ORÇAMENTOS ]
+        // ========================================================================
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const msgBox = document.getElementById('form-message');
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // ---> COLOQUE O E-MAIL DO JARDEL AQUI ENTRE AS ASPAS <---
+            const emailDestino = "petrypedroh@gmail.com";
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Enviando...';
+
+            fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
+                method: "POST", headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    btn.innerHTML = 'Recebemos seu contato!';
+                    btn.classList.replace('bg-[#0340c2]', 'bg-green-600');
+                    msgBox.innerText = 'Obrigado! Sua solicitação foi enviada com sucesso.';
+                    msgBox.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'border-red-200');
+                    msgBox.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-200');
+                    this.reset();
+                })
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Tentar Novamente';
+                    msgBox.innerText = 'Erro ao enviar. Por favor, tente novamente ou use o WhatsApp.';
+                    msgBox.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200');
+                    msgBox.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+                });
+        });
+    </script>
+</body>
+
+</html>

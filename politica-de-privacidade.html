@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Eckert Engenharia de Estruturas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('inicio')">
+                    <img src="Logo.png" alt="Logo EEE" class="h-12 w-auto object-contain"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div
+                        class="hidden flex items-center justify-center bg-blue-900 rounded-lg text-white font-bold text-xl w-12 h-12">
+                        EEE</div>
+                    <div class="leading-tight">
+                        <span class="block text-lg font-bold text-[#0a2472] uppercase leading-none">Eckert
+                            Engenharia</span>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">De
+                            Estruturas</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 font-medium items-center">
+                    <a href="index.html" class="text-[#0a2472] hover:text-blue-600 transition nav-link">Início</a>
+                    <a href="index.html#sobre" class="text-gray-600 hover:text-[#0a2472] transition nav-link">Quem
+                        Somos</a>
+                    <a href="index.html#servicos"
+                        class="text-gray-600 hover:text-[#0a2472] transition nav-link">Serviços</a>
+                    <a href="index.html#portfolio" class="text-gray-600 hover:text-[#0a2472] transition nav-link"
+                        id="nav-portfolio">Portfólio</a>
+                    <a href="index.html#contato"
+                        class="bg-[#0340c2] text-white px-6 py-2.5 rounded-md hover:bg-[#0a2472] transition shadow-md font-bold text-sm uppercase tracking-wide">Contato</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-[#0a2472] focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 py-6 space-y-4">
+                <a href="javascript:void(0)" onclick="navigate('inicio')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Início</a>
+                <a href="javascript:void(0)" onclick="navigate('sobre')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Quem Somos</a>
+                <a href="javascript:void(0)" onclick="navigate('servicos')"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Serviços</a>
+                <a href="javascript:void(0)" onclick="showPortfolio()"
+                    class="block text-gray-700 font-medium hover:text-[#0a2472]">Portfólio</a>
+                <a href="javascript:void(0)" onclick="navigate('contato')"
+                    class="block text-[#0a2472] font-bold pt-2 border-t">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="view-privacidade" class="pt-20 pb-24 bg-gray-50 min-h-screen">
+
+        <div class="bg-[#0a2472] py-16 text-center text-white border-t-4 border-blue-600">
+            <h1 class="text-4xl md:text-5xl font-black mb-4">Política de Privacidade</h1>
+            <p class="text-blue-200 max-w-2xl mx-auto px-4">A Eckert Engenharia de Estruturas respeita a privacidade dos
+                usuários e está comprometida com a proteção dos dados pessoais coletados por meio deste site.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div
+                class="bg-white p-10 md:p-16 rounded-2xl shadow-lg border border-gray-100 text-gray-700 space-y-8 leading-relaxed">
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">1. Dados Coletados</h3>
+                    <p>Ao preencher os formulários disponíveis neste site, poderão ser coletadas as seguintes
+                        informações:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-600">
+                        <li>Nome;</li>
+                        <li>Telefone;</li>
+                        <li>Outras informações fornecidas voluntariamente pelo usuário.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">2. Finalidade da Coleta</h3>
+                    <p>Os dados coletados são utilizados para:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-600">
+                        <li>Entrar em contato com potenciais clientes;</li>
+                        <li>Fornecer informações sobre serviços de engenharia estrutural;</li>
+                        <li>Elaborar propostas comerciais;</li>
+                        <li>Melhorar a comunicação e o atendimento aos usuários.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">3. Compartilhamento de Dados</h3>
+                    <p class="mb-3">A Eckert Engenharia de Estruturas não vende, aluga ou compartilha dados pessoais com
+                        terceiros para fins comerciais.</p>
+                    <p>Os dados poderão ser compartilhados apenas quando necessário para cumprimento de obrigações
+                        legais ou para a prestação dos serviços solicitados.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">4. Cookies e Tecnologias de Rastreamento</h3>
+                    <p>Este site poderá utilizar cookies e ferramentas de análise de acesso, como Google Analytics, Meta
+                        Pixel ou tecnologias semelhantes, com a finalidade de melhorar a experiência de navegação e
+                        analisar o desempenho do site.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">5. Segurança das Informações</h3>
+                    <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra
+                        acessos não autorizados, perda, alteração ou divulgação indevida.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">6. Direitos do Titular dos Dados</h3>
+                    <p>O usuário poderá solicitar informações, correções ou exclusão de seus dados pessoais por meio dos
+                        canais de contato disponibilizados neste site, nos termos da Lei Geral de Proteção de Dados
+                        (LGPD - Lei nº 13.709/2018).</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">7. Alterações desta Política</h3>
+                    <p>Esta Política de Privacidade poderá ser atualizada periodicamente. As alterações entrarão em
+                        vigor após sua publicação nesta página.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-[#0a2472] mb-4">8. Contato</h3>
+                    <p>Para dúvidas relacionadas à privacidade e ao tratamento de dados pessoais, entre em contato
+                        através dos meios de comunicação disponibilizados no site da Eckert Engenharia de Estruturas.
+                    </p>
+                </div>
+
+                <div class="border-t border-gray-200 pt-8 mt-12 text-sm text-gray-500 text-center">
+                    <p>Última atualização: 02/06/2026</p>
+                </div>
+            </div>
+
+            <!-- Botão Voltar -->
+            <div class="mt-12 text-center">
+                <a href="index.html"
+                    class="inline-block bg-transparent border-2 border-[#0a2472] text-[#0a2472] font-bold py-3 px-8 rounded-md hover:bg-[#0a2472] hover:text-white transition uppercase tracking-wide">
+                    Voltar para o Início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Código do menu mobile (abrir/fechar)
+        const btnMenu = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btnMenu && menu) {
+            btnMenu.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+
+</html>
