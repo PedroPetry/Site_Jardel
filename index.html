@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [ EDITE AQUI: NOME DA ABA DO NAVEGADOR ] -->
-    <title>Eckert Engenharia | Estruturas</title>
+    <title>Eckert Engenharia de Estruturas</title>
 
     <!-- [ EDITE AQUI: FAVICON (ÍCONE DA ABA DO NAVEGADOR) ] -->
     <!-- Se você tiver um arquivo .ico ou uma logo menor, coloque o nome dele no href abaixo -->
@@ -79,9 +79,7 @@
                         EEE</div>
                     <div class="leading-tight">
                         <span class="block text-lg font-bold text-[#0a2472] uppercase leading-none">Eckert
-                            Engenharia</span>
-                        <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">De
-                            Estruturas</span>
+                            Engenharia De Estruturas</span>
                     </div>
                 </div>
 
@@ -128,11 +126,15 @@
     <main id="view-home" class="fade-in block">
 
         <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0">
-                <!-- [ EDITE AQUI: FOTO DE FUNDO DA TELA INICIAL (HERO) ] -->
-                <img src="./img/img_hero.JPG" alt="Engenharia e Estruturas" class="w-full h-full object-cover">
-                <div class="absolute inset-0 hero-overlay"></div>
+            <!-- Painel de 3 Imagens de Fundo -->
+            <div class="absolute inset-0 flex w-full h-full">
+                <!-- [ EDITE AQUI: 3 FOTOS DE FUNDO DA TELA INICIAL (HERO) ] -->
+                <img src="./img/img_hero.JPG" alt="Engenharia e Estruturas 1" class="w-1/3 h-full object-cover">
+                <img src="./img/Montagem Metálica 2.JPG" alt="Engenharia e Estruturas 2" class="w-1/3 h-full object-cover">
+                <img src="./img/Cálculo Estrutural e Gerenciamento de obra - Dois Irmãos 4 - RS.JPG" alt="Engenharia e Estruturas 3" class="w-1/3 h-full object-cover">
             </div>
+            <!-- Overlay escuro sobre as imagens -->
+            <div class="absolute inset-0 hero-overlay"></div>
 
             <div class="relative z-10 text-center px-4 max-w-5xl mt-20">
                 <div class="mb-5 inline-block">
@@ -143,8 +145,8 @@
 
                 <!-- [ EDITE AQUI: TEXTO PRINCIPAL DA TELA INICIAL ] -->
                 <h1
-                    class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight uppercase tracking-wide">
-                    Eckert Engenharia
+                    class="text-3xl md:text-5xl lg:text-5xl font-extrabold text-white mb-4 leading-tight uppercase tracking-wide">
+                    Eckert Engenharia De Estruturas
                 </h1>
 
                 <h2
@@ -157,13 +159,13 @@
                 </h2>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-                    <a href="javascript:void(0)" onclick="navigate('contato')"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold transition-all flex items-center justify-center shadow-lg transform hover:scale-105">
-                        Solicitar Orçamento <i class="fa-solid fa-chevron-right ml-3 text-sm"></i>
-                    </a>
                     <a href="javascript:void(0)" onclick="navigate('servicos')"
-                        class="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">
-                        Conhecer Serviços
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold transition-all flex items-center justify-center shadow-lg transform hover:scale-105">
+                        Conhecer Serviços <i class="fa-solid fa-chevron-right ml-3 text-sm"></i>
+                    </a>
+                    <a href="javascript:void(0)" onclick="navigate('contato')"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg hover:scale-105">
+                        Solicitar Orçamento
                     </a>
                 </div>
 
@@ -192,12 +194,24 @@
 
                     <div class="relative lg:sticky lg:top-32">
                         <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-50 rounded-full -z-10"></div>
-                        <!-- [ EDITE AQUI: FOTO DA SEÇÃO QUEM SOMOS ] -->
-                        <img src="./img/img_quem_somos.JPG" alt="Obra de engenharia"
-                            class="rounded-3xl shadow-2xl border-8 border-gray-50">
+                        
+                        <!-- [ EDITE AQUI: 3 FOTOS EMPILHADAS DA SEÇÃO QUEM SOMOS ] -->
+                        <div class="flex flex-col gap-4 relative z-0">
+                            <!-- Imagem 1 (Topo) -->
+                            <img src="./img/qs4.JPG" alt="Obra de engenharia 1" 
+                                class="w-full h-48 md:h-64 object-cover rounded-2xl md:rounded-3xl shadow-lg border-4 border-white transform translate-x-2">
+                            
+                            <!-- Imagem 2 (Meio) -->
+                            <img src="./img/qs2.JPG" alt="Obra de engenharia 2" 
+                                class="w-full h-48 md:h-64 object-cover rounded-2xl md:rounded-3xl shadow-xl border-4 border-white transform -translate-x-4 -mt-8 relative z-10">
+                            
+                            <!-- Imagem 3 (Base) -->
+                            <img src="./img/qs3.JPG" alt="Obra de engenharia 3" 
+                                class="w-full h-48 md:h-64 object-cover rounded-2xl md:rounded-3xl shadow-xl border-4 border-white transform translate-x-4 -mt-8 relative z-20">
+                        </div>
 
                         <div
-                            class="absolute -bottom-6 -right-6 bg-blue-900 p-6 rounded-2xl text-white shadow-xl hidden lg:block">
+                            class="absolute -bottom-10 -right-2 bg-blue-900 p-6 rounded-2xl text-white shadow-xl hidden lg:block z-30">
                             <p class="text-3xl font-bold">+250 mil</p>
                             <p class="text-blue-200">Metros quadrados em obras</p>
                         </div>
@@ -226,6 +240,8 @@
                             <ul class="grid sm:grid-cols-2 gap-4 py-4">
                                 <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
                                     Estruturas de concreto armado</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
+                                        Concreto pré-moldado</li>
                                 <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
                                     Concreto protendido</li>
                                 <li class="flex items-start"><i class="fa-solid fa-check text-blue-600 mt-1.5 mr-3"></i>
@@ -301,8 +317,8 @@
                     <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
                         <i class="fa-solid fa-compass-drafting text-3xl text-blue-900 mb-4 block"></i>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Projetos Estruturais</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Projetos estruturais e complementares em geral:
-                            Soluções completas para o sucesso de seu empreendimento.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Projetos estruturais em concreto armado, pré-moldado, protendido,
+                            estruturas metálicas, fundações e alvenaria estrutural.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
                         <i class="fa-solid fa-chart-line text-3xl text-blue-900 mb-4 block"></i>
@@ -319,9 +335,8 @@
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
                         <i class="fa-solid fa-clipboard-list text-3xl text-blue-900 mb-4 block"></i>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Gerenciamento de Obras</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Obras Comerciais, Industriais e Residenciais:
-                            Garantindo qualidade, prazos e eficiência em cada projeto.</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Orçamentação de Obras</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Estimativas precisas de custos para decisões seguras e competitivas.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
                         <i class="fa-solid fa-road text-3xl text-blue-900 mb-4 block"></i>
@@ -347,6 +362,21 @@
                         <p class="text-gray-600 text-sm leading-relaxed">Finalização e atividades após a conclusão da
                             obra pré-moldada, incluindo piso e telhado.</p>
                     </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-chart-line text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Regularização e Projetos complementares</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Documentação, aprovação e projetos técnicos para total conformidade legal.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-compass-drafting text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Topografia e Locação de obras</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Levantamentos precisos e marcações confiáveis para execução sem desvios.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover-lift service-card">
+                        <i class="fa-solid fa-clipboard-list text-3xl text-blue-900 mb-4 block"></i>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Laudos e Análises</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Avaliações técnicas e pareceres fundamentados para decisões seguras.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -358,13 +388,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h4 class="text-blue-300 font-bold tracking-widest uppercase text-sm mb-2">Diferenciais</h4>
-                    <h2 class="text-4xl font-extrabold mb-4">Por que Confiar na Eckert?</h2>
+                    <h2 class="text-4xl font-extrabold mb-4">Por que Confiar na Eckert Engenharia?</h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-[#112d85] border border-[#1e40af] p-8 rounded-xl hover-lift shadow-lg">
                         <i class="fa-solid fa-shield-halved text-3xl text-white mb-5"></i>
-                        <h3 class="text-xl font-bold mb-3 text-white">Segurança Rigorosa</h3>
+                        <h3 class="text-xl font-bold mb-3 text-white">Segurança Rigorosa e Responsável</h3>
                         <p class="text-blue-100 text-sm leading-relaxed">Projetos desenvolvidos rigorosamente dentro das
                             normas técnicas.</p>
                     </div>
@@ -392,7 +422,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h4 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2">Nosso Portfólio</h4>
-                    <h2 class="text-4xl font-extrabold text-blue-950 mb-4">Projetos em Destaque</h2>
+                    <h2 class="text-4xl font-extrabold text-blue-950 mb-4">Variedades de Projetos</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Uma pequena amostra da nossa excelência e rigor técnico
                         em diferentes segmentos da engenharia.</p>
                 </div>
@@ -434,6 +464,9 @@
                                 </li>
                                 <li class="flex items-center text-gray-700 font-medium">
                                     <i class="fa-solid fa-check text-blue-600 mr-3"></i> Sigilo total dos seus projetos
+                                </li>
+                                <li class="flex items-center text-gray-700 font-medium">
+                                    <i class="fa-solid fa-check text-blue-600 mr-3"></i> Atendimento via ligação
                                 </li>
                             </ul>
                         </div>
@@ -493,15 +526,15 @@
                     <div class="flex justify-center space-x-4">
                         <!-- [ EDITE AQUI: LINKS DAS REDES SOCIAIS ABAIXO DO FORMULÁRIO ] -->
                         <!-- Troque o "#" dentro do href=" " pelo link do seu perfil -->
-                        <a href="#"
+                        <!-- <a href="#"
                             class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
                             <i class="fa-brands fa-facebook-f text-xl"></i>
-                        </a>
-                        <a href="#"
+                        </a> -->
+                        <a target="_blank" href ="https://www.linkedin.com/in/jardel-henrique-eckert/"
                             class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
                             <i class="fa-brands fa-linkedin-in text-xl"></i>
                         </a>
-                        <a href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
+                        <a target="_blank" href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
                             class="w-12 h-12 bg-white/10 hover:bg-[#2563eb] text-white rounded-full flex items-center justify-center transition border border-white/20 shadow-lg">
                             <i class="fa-brands fa-instagram text-xl"></i>
                         </a>
@@ -594,13 +627,13 @@
                     <div class="flex space-x-3">
                         <!-- [ EDITE AQUI: LINKS DAS REDES SOCIAIS DO RODAPÉ ] -->
                         <!-- Troque o "#" pelo link -->
-                        <a href="#"
+                        <!-- <a href="#"
                             class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"
+                                class="fa-brands fa-facebook-f"></i></a> -->
+                        <a target="_blank" href="https://www.linkedin.com/in/jardel-henrique-eckert/"
                             class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
                                 class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
+                        <a target="_blank" href="https://www.instagram.com/eckertengenharia?igsh=OG5sam9rc3A0aW0y"
                             class="w-10 h-10 bg-[#2563eb] text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition shadow-lg"><i
                                 class="fa-brands fa-instagram"></i></a>
                     </div>
@@ -611,7 +644,7 @@
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-gray-400">
                 <div class="text-center md:text-left">
                     <!-- [ EDITE AQUI: NUMERO DO CREA ] -->
-                    <p>© 2026 Eckert Engenharia. Todos os direitos reservados. CREA-RS: 123456</p>
+                    <p>© 2026 Eckert Engenharia. Todos os direitos reservados. CREA-RS: 183018</p>
                     <!-- <p class="mt-1 text-xs">Desenvolvido por <a href="https://zynis-hub.vercel.app/" target="_blank" rel="noopener noreferrer"><strong class="text-white font-bold text-sm tracking-wider mb-25">Zynis Hub</strong></p></a> -->
                 </div>
                 <div class="flex space-x-6">
@@ -652,16 +685,16 @@
         // Para adicionar um novo projeto, copie um bloco { ... }, cole embaixo e mude os textos.
         const allProjects = [
             {
-                title: "Ed.Pulse 360",
+                title: "Ed.Pulse 360 - Lajeado-RS",
                 tag: "Cálculo Estrutural",
                 image: "img/Ed. Pulse 360 - Calculo Estrutural.jpeg",
-                description: "Projeto, cálculo, dimensionamento e detalhamento da Estrutura de pilotis em concreto armado e alvenaria estrutural, Lajeado - RS."
+                description: "Projeto, cálculo e dimensionamento da Estrutura de pilotis em concreto armado e alvenaria estrutural, Lajeado - RS."
             },
             {
-                title: "Pavilhão - Paraíso do Sul",
+                title: "Pavilhão Paraíso das Águas - MS",
                 tag: "Estrutura Metálica",
                 image: "img/Montagem Metálica 2.JPG",
-                description: "Projeto, cálculo, dimensionamento e detalhamento da Estrutura com 50 metros de vão."
+                description: "Projeto, cálculo, dimensionamento e detalhamento da Estrutura com 50 metros de vão e 25 metros de altura."
             },
             {
                 title: "Estaqueamento - Passo do Sobrado",
@@ -670,13 +703,13 @@
                 description: "Estaqueamento perfurado convencional e com hélice contínua. Projeto e Execução"
             },
             {
-                title: "Parque do Imigrante",
+                title: "Parque do Imigrante - Lajeado-RS",
                 tag: "Gerenciamento de Obra",
                 image: "img/Gerenciamento de obra - Lajeado 3 - RS.JPG",
                 description: "Acompanhamento e execução da obra, localizada em Lajeado-RS."
             },
             {
-                title: "Pavilhão Dois Irmãos – RS",
+                title: "Pavilhão Industrial – RS",
                 tag: "Cálculo Estrutural",
                 image: "img/Cálculo Estrutural e Gerenciamento de obra - Dois Irmãos 4 - RS.JPG",
                 description: "Gerenciamento de obra e cálculo estrutural. Cobertura em concreto protendido."
@@ -688,13 +721,13 @@
                 description: "Gerenciamento de obra e cálculo estrutural, Garibaldi – RS."
             },
             {
-                title: "Distribuidora Marmitt",
+                title: "Pavilhão Comercial - Ivoti-RS",
                 tag: "Cálculo Estrutural",
                 image: "img/Cálculo Estrutural e Gerenciamento de obra - Ivoti 3 - RS.JPG",
                 description: "Gerenciamento de obra e cálculo estrutural. Cobertura de 40 metros de vão em treliça plana, Ivoti - RS."
             },
             {
-                title: "Atacado Macromix",
+                title: "Edificação Comercial - Portão-RS",
                 tag: "Cálculo Estrutural",
                 image: "img/Cálculo Estrutural e Gerenciamento de obra - Portão 5 - RS.JPG",
                 description: "Gerenciamento de obra e cálculo estrutural Portão – RS."
@@ -704,6 +737,36 @@
                 tag: "Cálculo e Gerenciamento",
                 image: "img/Cálculo Estrutural e Gerenciamento de obra - Encantado 4 - RS.JPG",
                 description: "Execução de ponte em concreto protendido. Cálculo estrutural e gerenciamento de obra, Encantado - RS."
+            },
+            {
+                title: "Ed. Manhattan - Lajeado-RS",
+                tag: "Cálculo Estrutural",
+                image: "img/Ed. Manhattan.jpg",
+                description: "Projeto, cálculo e dimensionamento da Estrutura, Ed. Manhattan localizado em Lajeado-RS"
+            },
+            {
+                title: "Locação de Obra - Estrela-RS",
+                tag: "Locação de Obra",
+                image: "img/Locação de Obra - Estrela - RS.JPG",
+                description: "Locação de obra e marcação dos eixos estruturais de pavilhão comercial, localizada em Estrela-RS."
+            },
+            {
+                title: "Montagem Metálica",
+                tag: "Cálculo Estrutural",
+                image: "img/Montagem Metálica 7.JPG",
+                description: "Execução e acompanhamento técnico da montagem metálica de pavilhão comercial."
+            },
+            {
+                title: "Edificação Comercial - Capão da Canoa - RS",
+                tag: "Cálculo Estrutural",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Capão da Canoa - RS.JPG",
+                description: "Cálculo Estrutural e Gerenciamento de obra, Capão da Canoa - RS."
+            },
+            {
+                title: "Edificação Comercial - Dois Irmãos - RS",
+                tag: "Cálculo Estrutural",
+                image: "img/Cálculo Estrutural e Gerenciamento de obra - Dois Irmãos 2 - RS.JPG",
+                description: "Cálculo Estrutural e Gerenciamento de obra, Dois Irmãos - RS."
             }
         ];
 
